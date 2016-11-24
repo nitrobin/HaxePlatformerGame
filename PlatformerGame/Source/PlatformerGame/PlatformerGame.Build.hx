@@ -11,7 +11,8 @@ class PlatformerGame extends HaxeModuleRules {
   }
 
   override private function getConfig():HaxeModuleConfig {
-    // add your custom configuration here
-    return super.getConfig();
+    var ret = super.getConfig();
+    //ret.dce = DceNo;
+    return ret;
   }
 }

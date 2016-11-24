@@ -223,13 +223,17 @@ class BlueprintLibrary extends UBlueprintFunctionLibrary {
    */
   @:ufunction(BlueprintCallable, Category = Game)
   public static function SortHighscores(InTimes:TArray<Float32>, InNames:TArray<FString>, OutTimes:PRef<TArray<Float32>>, OutNames:PRef<TArray<FString>>, MaxScores:Int32):Void {
-    var tmp = [ for (i in 0...InTimes.Num()) { time:InTimes[i], name:InNames[i] } ];
+    var tmp:Array<{time:Float32,name:Dynamic}> = [ for (i in 0...InTimes.Num()) {
+      var n:Dynamic = InNames[i];
+      var a = { time:InTimes[i], name:n };
+      a;
+    } ];
     tmp.sort(function(e1, e2) return Reflect.compare(e1.time, e2.time));
     OutTimes.Empty();
     OutNames.Empty();
     for (i in 0...tmp.length) {
       OutTimes.Push( tmp[i].time );
-      OutNames.Push( tmp[i].name );
+      OutNames.Push(tmp[i].name );
     }
   }
 }

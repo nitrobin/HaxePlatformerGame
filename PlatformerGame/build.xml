@@ -180,5 +180,23 @@
         <arg line="-crashreporter"/>
     </call_unreal_cook>
   </target>
+  <target name="clean">
+        <delete includeEmptyDirs="true" verbose="true" quiet="true" failonerror="false">
+            <fileset dir="${user.dir}/Binaries"/>
+            <fileset dir="${user.dir}/Build"/>
+            <fileset dir="${user.dir}/DerivedDataCache"/>
+            <fileset dir="${user.dir}/Intermediate"/>
+            <fileset dir="${user.dir}/Saved"/>
 
+            <fileset dir="${user.dir}/Plugins/UE4Haxe/Binaries"/>
+            <fileset dir="${user.dir}/Plugins/UE4Haxe/Build"/>
+            <fileset dir="${user.dir}/Plugins/UE4Haxe/DerivedDataCache"/>
+            <fileset dir="${user.dir}/Plugins/UE4Haxe/Intermediate"/>
+            <fileset dir="${user.dir}/Plugins/UE4Haxe/Saved"/>
+
+            <fileset dir="${user.dir}/Source/GameProjectHaxe/Generated"/>
+            <fileset dir="${user.dir}/Haxe/Templates/Source/HaxeRuntime/Generated"/>
+            <fileset dir="${user.dir}/Haxe/Generated"/>
+        </delete>
+    </target>
 </project>
