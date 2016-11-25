@@ -199,4 +199,13 @@
             <fileset dir="${user.dir}/Haxe/Generated"/>
         </delete>
     </target>
+  <target name="clean-android">
+        <delete includeEmptyDirs="true" verbose="true" quiet="true" failonerror="false">
+            <fileset dir="${user.dir}/Binaries/Android"/>
+            <fileset dir="${user.dir}/Build/Android"/>
+            <fileset dir="${user.dir}/Intermediate/Android"/>
+            <fileset dir="${user.dir}/Intermediate/Haxe/Android-Development"/>
+            <fileset dir="${user.dir}/Intermediate/Build/Android"/>
+        </delete>
+    </target>
 </project>
