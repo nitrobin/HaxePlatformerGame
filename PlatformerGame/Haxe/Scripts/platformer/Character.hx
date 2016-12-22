@@ -22,7 +22,7 @@ class Character extends ACharacter {
     super.PostInitializeComponents();
 
     // setting initial rotation
-    SetActorRotation(FRotator.createWithValues(0,0,0));
+    K2_SetActorRotation(FRotator.createWithValues(0,0,0), true);
   }
 
   /** perform position adjustments */
@@ -31,13 +31,13 @@ class Character extends ACharacter {
     if (!AnimPositionAdjustment.IsNearlyZero())
     {
       AnimPositionAdjustment = FMath.VInterpConstantTo(AnimPositionAdjustment, FVector.ZeroVector, DeltaSeconds, 400.0);
-      GetMesh().SetRelativeLocation(GetBaseTranslationOffset() + AnimPositionAdjustment, false, null, None);
+      GetMesh().K2_SetRelativeLocation(GetBaseTranslationOffset() + AnimPositionAdjustment, false, null, false);
     }
 
     if (ClimbToMarker != null)
     {
       // correction in case climb marker is moving
-      var AdjustDelta = ClimbToMarker.GetComponentLocation().subeq(ClimbToMarkerLocation);
+      var AdjustDelta = ClimbToMarker.K2_GetComponentLocation().subeq(ClimbToMarkerLocation);
       if (!AdjustDelta.IsZero())
       {
         SetActorLocation(GetActorLocation().addeq(AdjustDelta), false, null);
