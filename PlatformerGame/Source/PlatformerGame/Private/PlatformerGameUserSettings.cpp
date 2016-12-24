@@ -15,7 +15,7 @@ void UPlatformerGameUserSettings::ApplySettings(bool bCheckForCommandLineOverrid
 	Super::ApplySettings(bCheckForCommandLineOverrides);
 	if (GEngine && GEngine->GetMainAudioDevice())
 	{
-		GEngine->GetMainAudioDevice()->TransientMasterVolume = SoundVolume;
+		GEngine->GetMainAudioDevice()->SetTransientMasterVolume(SoundVolume);
 	}
 }
 
@@ -24,7 +24,7 @@ bool UPlatformerGameUserSettings::IsSoundVolumeDirty() const
 	bool bIsDirty = false;
 	if (GEngine && GEngine->GetMainAudioDevice())
 	{
-		float CurrentSoundVolume = GEngine->GetMainAudioDevice()->TransientMasterVolume;
+		float CurrentSoundVolume = GEngine->GetMainAudioDevice()->GetTransientMasterVolume();
 		bIsDirty = CurrentSoundVolume != GetSoundVolume();
 	}
 	return bIsDirty;
