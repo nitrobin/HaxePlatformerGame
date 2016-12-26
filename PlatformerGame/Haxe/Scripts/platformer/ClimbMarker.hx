@@ -20,7 +20,7 @@ class ClimbMarker extends AActor {
     Mesh.StaticMesh = ClimbMarkerOb.Object;
     Mesh.RelativeScale3D = new FVector(0.25, 1.0, 0.25);
 //    Mesh.AttachParent = SceneComp;
-    Mesh.AttachTo(SceneComp, null, EAttachLocation.KeepRelativeOffset, false );
+    Mesh.AttachTo(SceneComp, UnrealName.NAME_None, EAttachLocation.KeepRelativeOffset, false );
   }
 
   inline public function GetMesh() {
